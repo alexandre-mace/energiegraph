@@ -1,0 +1,81 @@
+body {
+    font-family: 'Supreme', sans-serif;
+    font-weight: 500;
+    background-color: #EFEDEC;
+    margin: 0 !important;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+.body-wrapper {
+}
+.header {
+    background-color: #DBE1E6;
+}
+.subcategory-title {
+    font-weight: 800;
+}
+.body-wrapper, .header {
+    padding-top: 2rem;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.header a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+.main-row {
+    min-height: 100vh;
+}
+h1 {
+    font-family: 'Clash Display', sans-serif;
+}
+ul {
+    list-style-type: none;
+}
+header nav {
+    margin-top: 5rem;
+}
+header ul {
+    padding-left: 0;
+}
+header li {
+    margin-bottom: 1rem;
+}
+.siteName {
+    line-height: 0.8;
+    text-transform: uppercase;
+}
+.category-image {
+    height: 30px;
+    width: 30px;
+}
+.category-title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.category-description {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+.graph-wrapper {
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    height: 100%;
+}
+iframe {
+    width: 100%;
+}
+.graph-title {
+    margin-top: 0;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 500;
+}
+.menu-category-title {
+    font-weight: 500;
+    font-size: 1.3rem;
+}

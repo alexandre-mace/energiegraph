@@ -7,6 +7,9 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link href="https://api.fontshare.com/css?f[]=supreme@400,500,700,800&f[]=clash-display@500,600&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css">
+            <link rel="stylesheet" href="/style.css">
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +17,27 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+            <div class="main-row row no-gutter">
+                <div class="col-2 header">
+                    <header>
+                        <h1 class="siteName">Énergie <br> graph</h1>
+                        <nav>
+                            <ul>
+                                {% for category in categories.access %}
+                                    <li><a class="d-flex align-items-center" href="{{ path('category', {'id': category.id}) }}">
+                                            {% if category.emoji %}
+                                                <div><img class="category-image mr-2" src="{{ category.emoji }}" alt="Image {{ category.title }}"></div>
+                                            {% endif %}
+                                            <div class="menu-category-title">{{ category.title }}</div>
+                                        </a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
+                <div class="col-10 body-wrapper">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
     </body>
 </html>

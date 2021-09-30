@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex align-items-center mb-4">
+        <div class="d-flex align-items-center">
+            <img class="category-image mr-2" src="{{ category.emoji }}" alt="Image {{ category.title }}">
+            <h1 class="category-title">{{ category.title }}</h1>
+        </div>
+        <div class="category-description ml-2 d-flex"> <span class="mr-2">-</span> {{ category.description|raw }}</div>
+    </div>
+    {% for subcategory in category.subcategories %}
+        <h2 class="subcategory-title">{{ subcategory.title }}</h2>
+        <div class="row">
+            {% for graph in subcategory.graphs %}
+                <div class="mb-4 {% if loop.index == 1 %}col-12{% else %}col-6{% endif %}">
+                    <div class="graph-wrapper">
+                        <h3 class="graph-title">{{ graph.title }}</h3>
+                        {{ graph.iframe|raw }}
+                        <p>{{ graph.description|raw }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}
