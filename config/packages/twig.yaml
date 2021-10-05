@@ -3,6 +3,7 @@ twig:
     globals:
       # the value is the service's id
       categories: '@App\Accessor\CategoriesAccessor'
+      graphs: '@App\Accessor\GraphsAccessor'
 when@test:
     twig:
         strict_variables: true

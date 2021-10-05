@@ -1,43 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Énergie graph{% endblock %}</title>
+        <meta name="description" content="Graphiques et visualisation de données sur l'énergie">
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+        <link rel=”icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/bar-chart_1f4ca.png">
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
             <link href="https://api.fontshare.com/css?f[]=supreme@400,500,700,800&f[]=clash-display@500,600&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css">
             <link rel="stylesheet" href="/style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.02.min.css">
         {% endblock %}
-
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
     <body>
-            <div class="main-row row no-gutter">
-                <div class="col-2 header">
+        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
+        <div class="main-row row no-gutter">
+                <div class="col-auto header">
                     <header>
                         <h1 class="siteName">Énergie <br> graph</h1>
                         <nav>
                             <ul>
-                                {% for category in categories.access %}
-                                    <li><a class="d-flex align-items-center" href="{{ path('category', {'id': category.id}) }}">
-                                            {% if category.emoji %}
-                                                <div><img class="category-image mr-2" src="{{ category.emoji }}" alt="Image {{ category.title }}"></div>
+                                {% for navCategory in categories.access %}
+                                    <li class="link-wrapper {% if navCategory.id == category.id %}link-wrapper-active{% endif %}"><a class="d-flex align-items-center" href="{{ path('category', {'id': navCategory.id}) }}">
+                                            {% if navCategory.emoji %}
+                                                <div><img class="category-image mr-2" src="{{ navCategory.emoji }}" alt="Image {{ navCategory.title }}"></div>
                                             {% endif %}
-                                            <div class="menu-category-title">{{ category.title }}</div>
+                                            <div class="menu-category-title">{{ navCategory.title }}</div>
                                         </a></li>
                                 {% endfor %}
                             </ul>
                         </nav>
                     </header>
                 </div>
-                <div class="col-10 body-wrapper">
+                <div class="col body-wrapper">
                     {% block body %}{% endblock %}
                 </div>
             </div>
+        <script>
+            window.addEventListener('load', () => {
+                const iframeSources = Array.from(document.getElementsByClassName('iframe-holder')).map(iframeHolder => iframeHolder);
+                iframeSources.slice(0, 1).forEach(iframeSource => {
+                    const iframe = iframeSource.nextSibling.nextSibling
+                    iframe.parentNode.insertBefore(createElementFromHTML(iframeSource.getAttribute('data-iframe')), iframe.nextSibling);
+                })
+                setTimeout(() => {
+                    iframeSources.slice(1, 3).forEach(iframeSource => {
+                        const iframe = iframeSource.nextSibling.nextSibling
+                        iframe.parentNode.insertBefore(createElementFromHTML(iframeSource.getAttribute('data-iframe')), iframe.nextSibling);
+                    })
+                }, 300)
+                setTimeout(() => {
+                    iframeSources.slice(3, iframeSources.length + 1).forEach(iframeSource => {
+                        const iframe = iframeSource.nextSibling.nextSibling
+                        iframe.parentNode.insertBefore(createElementFromHTML(iframeSource.getAttribute('data-iframe')), iframe.nextSibling);
+                    })
+                }, 2000)
+            });
+
+            function createElementFromHTML(htmlString) {
+                var div = document.createElement('div');
+                div.innerHTML = htmlString.trim();
+
+                return div.firstChild;
+            }
+        </script>
     </body>
 </html>

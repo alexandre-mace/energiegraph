@@ -1,16 +1,37 @@
 body {
     font-family: 'Supreme', sans-serif;
     font-weight: 500;
-    background-color: #EFEDEC;
+    background-color: #EEEEFC;
     margin: 0 !important;
     min-height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
 }
+html {
+    scroll-behavior: smooth;
+}
+#autoComplete {
+    border: none;
+    border-radius: 6px;
+    height: 45px;
+    background-size: 5%;
+    background-image: url(https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/magnifying-glass-tilted-left_1f50d.png);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 45px;
+}
+#autoComplete, .autoComplete_wrapper {
+    width: 100%;
+    max-width: 450px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .body-wrapper {
 }
 .header {
-    background-color: #DBE1E6;
+    background-color: #EEEEFC;
 }
 .subcategory-title {
     font-weight: 800;
@@ -45,6 +66,7 @@ header li {
 }
 .siteName {
     line-height: 0.8;
+    margin-top: 0;
     text-transform: uppercase;
 }
 .category-image {
@@ -59,16 +81,19 @@ header li {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.2rem;
+    font-weight: 400;
 }
 .graph-wrapper {
     padding: 30px;
     background-color: white;
-    border-radius: 16px;
-    margin-bottom: 30px;
+    border-radius: 25px;
     height: 100%;
+    box-shadow: rgba(149, 157, 165, 0.03) 0px 8px 24px;
+    min-height: 407px;
 }
 iframe {
     width: 100%;
+    min-height: 300px;
 }
 .graph-title {
     margin-top: 0;
@@ -78,4 +103,18 @@ iframe {
 .menu-category-title {
     font-weight: 500;
     font-size: 1.3rem;
+}
+.link-wrapper {
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+.link-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+.link-wrapper-active {
+    background-color: white;
+    /*box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;*/
+}
+.link-wrapper-active:hover {
+    background-color: white;
 }
