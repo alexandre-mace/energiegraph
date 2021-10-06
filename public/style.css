@@ -19,12 +19,12 @@ html {
     background-position: 10px center;
     padding-left: 45px;
     transition: all 0.25s;
-    margin-bottom: 3rem;
     border: 1px solid white;
 }
 #autoComplete:hover {
     box-shadow: rgba(149, 157, 165, 0.03) 0px 8px 24px;
     padding-left: 48px;
+    background-size: 6%;
 }
 #autoComplete, .autoComplete_wrapper {
     width: 100%;
